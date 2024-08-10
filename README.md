@@ -11,9 +11,29 @@ The purpose of this project is automating the deployment after building and test
 
 At a high level, this project helps us dive deeper into configuring Jenkins to play a bigger role in our CI/CD pipeline. We will be exposed to creating Security Credentials from AWS in the form of ACCESS Keys tied to our IAM User, allowing Jenkins to authenticate into AWS on our behalf to perform the actions needed on our behalf. AWS CLI and EB CLI is needed for Jenkins to execute API calls to Elastic Beanstalk to create our environments to deploy our banking app. 
 
-## Steps
+## Steps Taken to Implement
 
-1. 
+1. Git clone code repository to personal repository without creating a fork. The reason why we don't want to fork is because we want to have a completely independent copy of the repository, unrelated to the original repository. We can also modify access controls or repository settings that would not be possible if we had forked the original repository.
+
+   * You can do it multiple ways but I chose to use this method https://gist.github.com/hohowin/954fba73f5a02d37e15a6ea5e5b10b54
+      - Create empty repo in Github, cannot have any commits.
+      - On EC2 instance or local machine, create empty directory and run `git init`
+      - Navigate to that empty directory and run `git pull $SOURCE_GITHUB_REPO` for your code
+      - Once the source code has been pulled down to your directory, run `git remote add origin $GIT_URL_NEW_CREATED_REPO` and then `git push origin main\master`
+        * Git remote essentially creates a link between your local respository to your remote repository hosted in Github.
+        
+   * The other ways you can clone a repository:
+      - Git clone source repository and add a remote link to destination repository.
+      - Git clone both source and destination repositories, copy files locally from source repo to destination repo and then git push files in the destination repo.
+    
+2. Create AWS Access Key for IAM User Authentication. Here we are creating a long term security credential that we will allow Jenkins to use in order to access AWS Resources and APIs. In this case specifically, accessing Elastic Beanstalk and running AWS CLI/EB CLI commands to create our EB environment.
+
+  * Log into AWS Account -> IAM -> Click on IAM User you want to let Jenkins authenticate into AWS -> Create Access Key -> Select "Third-Party Service" because Jenkins is a third party service we are granting permissions. -> Save the Access_Key and Secret_Access_Key as we will need this later on. Download the CSV file containing your keys when prompted.
+
+NOTE: We do not want to ever share these access keys with anyone because with it, anyone can then use these credentials and authenticate as us and perform any actions that our IAM User has permissions for. Since our IAM User has full administrative rights, if someone else obtains our keys, they can do whatever they want via the AWS CLI to our account from creating resources to deleting resources and modifying anything within the account.
+
+3.
+
 
 ## System Design Diagram
 
