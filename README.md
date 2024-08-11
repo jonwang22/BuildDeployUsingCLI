@@ -70,7 +70,8 @@ NOTE: We do not want to ever share these access keys with anyone because with it
   
      * Under "Branch Sources", select GitHub. Provide the Github repo link and add your github username and user personal access token for the credentials.
      * To generate your GitHub personal access token. <br><br> Login to Github -> Click Profile picture at top right to open menu -> Click "Settings" -> Look for "Developer Settings" on the left side column of the page -> Click "Personal Access Tokens" to open drop down menu -> Select "Classic" -> Click "Generate New Token" -> Enter password to verify yourself and select the desired settings. <br><br> The settings I selected for this token are the ```repo``` and ```admin:repo_hook``` scopes.
-     * Make sure that you validate your credentials and GitHub repo link with the "Validate" button right under the Repo URL field
+     * Make sure that you validate your credentials and GitHub repo link with the "Validate" button right under the Repo URL field.
+     * Verify Build Configuration settings are set to ```Mode: by Jenkinsfile``` and ```Script Path: Jenkinsfile```
 
    * Started a build.
 
