@@ -19,7 +19,7 @@ At a high level, this project helps us dive deeper into configuring Jenkins to p
       - Create empty repo in Github, cannot have any commits.
       - On EC2 instance or local machine, create empty directory and run `git init`
       - Navigate to that empty directory and run `git pull $SOURCE_GITHUB_REPO` for your code
-      - Once the source code has been pulled down to your directory, run `git remote add origin $GIT_URL_NEW_CREATED_REPO` and then `git push origin main\master`
+      - Once the source code has been pulled down to your directory, run `git remote add origin $GIT_URL_NEW_CREATED_REPO` and then `git push origin main` (For this, our main branch is called `main`, by default your main branch could be called `master`. Variablized the command looks like this `git push origin $NAME_OF_BRANCH`
         * Git remote essentially creates a link between your local respository to your remote repository hosted in Github.
         
    * The other ways you can clone a repository:
