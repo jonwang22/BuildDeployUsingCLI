@@ -32,7 +32,32 @@ At a high level, this project helps us dive deeper into configuring Jenkins to p
 
 NOTE: We do not want to ever share these access keys with anyone because with it, anyone can then use these credentials and authenticate as us and perform any actions that our IAM User has permissions for. Since our IAM User has full administrative rights, if someone else obtains our keys, they can do whatever they want via the AWS CLI to our account from creating resources to deleting resources and modifying anything within the account.
 
-3.
+3.  Created EC2 Instance to host Jenkins
+   
+   * Created EC2 Instance in AWS.
+   
+   * Created a security group that allowed SSH for my personal IP and EC2 Instance Connect, HTTP and custom port 8080 for Jenkins.
+
+4. Installed Jenkins to my Jenkins server and started it up.
+
+   ```
+   # Updating existing packages on system, installing fontconfig, java runtime env, software properties common to manage additional software repos. Added deadsnakes PPA and installed python3.7
+   sudo apt update && sudo apt install fontconfig openjdk-17-jre software-properties-common && sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt install python3.7 python3.7-venv
+
+   # Downloaded the Jenkins respository key. Added the key to the /usr/share/keyrings directory
+   sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+
+   # Added Jenkins repo to sources list
+   echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+   # Downloaded all updates for packages again, installed Jenkins
+   sudo apt-get update
+   sudo apt-get install jenkins
+
+   # Started Jenkins and checked to make sure Jenkins is active and running with no issues
+   sudo systemctl start jenkins
+   sudo systemctl status jenkins
+   ```
 
 
 ## System Design Diagram
