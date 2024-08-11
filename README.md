@@ -59,7 +59,9 @@ NOTE: We do not want to ever share these access keys with anyone because with it
    sudo systemctl status jenkins
    ```
 
-5. Interact with Jenkins
+5. Create a script to check system resources called `system_resources_test.sh` that checks for system resources (can be memory, cpu, disk, all of the above and/or more) Jenkins build will look for this script.
+
+6. Interact with Jenkins
 
    * Connected to Jenkins Server via web browser using server's Public IP Address and port 8080
    * Installed recommended plug-ins
