@@ -59,6 +59,15 @@ NOTE: We do not want to ever share these access keys with anyone because with it
    sudo systemctl status jenkins
    ```
 
+5. Interact with Jenkins
+
+   * Connected to Jenkins Server via web browser using server's Public IP Address and port 8080
+   * Installed recommended plug-ins
+   * Created Admin user account
+   * Set the Jenkins base URL (Just used the default one provided)
+   * Created Multibranch Pipeline within Jenkins
+   * Linked this github repo to Jenkins
+   * Started a build.
 
 ## System Design Diagram
 
