@@ -160,6 +160,7 @@ Third step: Test
                       sh '''#!/bin/bash
                       source venv/bin/activate
                       eb create AutoDeployBankApp --single
+                      '''
                   }
               }
           }
@@ -168,10 +169,14 @@ Third step: Test
     
 
 ## System Design Diagram
+Here is the System Design for this project.
+
+![image](https://github.com/user-attachments/assets/be16cff2-a1f7-4e44-b6fc-73eec3e227fa)
+
 
 ## Issues/Troubleshooting
 
-1. My main issue was with my system resource script. Trying to get the syntax right 
+1. My main issue was with my system resource script. Trying to get the syntax right. Still having issues with it but the main thing is that Bash is unable to perform calculations with float numbers and integers. There's supposed to be a way to make it work but I haven't figured that part out yet.
 
 
 ## Optimization
