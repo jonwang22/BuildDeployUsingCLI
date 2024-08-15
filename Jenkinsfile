@@ -24,6 +24,7 @@ pipeline {
 		sh '''#!/bin/bash
 		source venv/bin/activate
 		eb create AutoDeployBankApp --single
+	    	'''
 	    }
 	}
     }
