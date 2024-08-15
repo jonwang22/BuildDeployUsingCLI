@@ -86,6 +86,53 @@ Second step: Build Step
 Third step: Test
 ![image](https://github.com/user-attachments/assets/ad6ee37e-fca4-45d5-9f17-726ba55f4af2)
 
+7. Setting up our environment in Jenkins User
+
+   * Create password for Jenkins using `sudo passwd jenkins`
+   * Switch to Jenkins user, `sudo su - jenkins`
+
+8. Navigate to the workspace environment `cd workspace/$NAME_OF_MULTIBRANCH_PIPELINE`
+
+9. Activate the Python Virtual Environment `source venv/bin/activate`
+   //TODO
+   * What is a virtual environment? Why is it important/necessary? and when was this one (venv) created?
+
+10. Install AWS EB CLI onto server.
+
+    * `pip install awsebcli` && `eb --version`
+   
+11. Configure AWS CLI
+
+    * `aws configure`
+    * Enter AWS IAM USER Access Key
+    * Enter AWS IAM USER Secret Access Key
+    * Region: "us-east-1"
+    * Output format: json
+   
+12. Initialize AWS Elastic Beanstalk CLI
+
+    * Run `eb init`
+    * Set default region to "us-east-1"
+    * Enter an Application Name or leave it as default
+    * Select Python3.7
+    * Select "no" for code commit
+    * Select "yes" for SSH and select a "KeyPair"
+
+13. Add a "Deploy" stage to Jenkinsfile
+
+    * Edit Jenkinsfile to add a deploy stage.
+    * Add the following code block AFTER the "Test" Stage.
+      ```
+      stage ('Deploy') {
+          steps {
+              sh '''#!/bin/bash
+              source venv/bin/activate
+              eb create [enter-name-of-environment-here] --single
+              '''
+          }
+      }
+      ```
+    
 
 ## System Design Diagram
 
