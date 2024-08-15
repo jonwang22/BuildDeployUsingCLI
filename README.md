@@ -76,10 +76,23 @@ NOTE: We do not want to ever share these access keys with anyone because with it
      * Verify Build Configuration settings are set to ```Mode: by Jenkinsfile``` and ```Script Path: Jenkinsfile```
 
    * Started a build.
+  
+First step: Checkout Source code.
+![image](https://github.com/user-attachments/assets/b3b8f108-a155-4771-9496-1c873e8a964c)
+
+Second step: Build Step
+![image](https://github.com/user-attachments/assets/314b1492-b6bd-4450-9708-6fbae87c5017)
+
+Third step: Test
+![image](https://github.com/user-attachments/assets/ad6ee37e-fca4-45d5-9f17-726ba55f4af2)
+
 
 ## System Design Diagram
 
 ## Issues/Troubleshooting
+
+1. My main issue was with my system resource script. Trying to get the syntax right 
+
 
 ## Optimization
 
