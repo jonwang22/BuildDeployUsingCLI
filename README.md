@@ -166,7 +166,9 @@ Third step: Test
           }
       }
       ```
-    
+
+14. Make sure you push your changes to your Jenkinsfile to github.
+15. Check AWS Console Elastic Beanstalk to check if your environment is up and your domain is hosting your application.
 
 ## System Design Diagram
 Here is the System Design for this project.
@@ -176,13 +178,31 @@ Here is the System Design for this project.
 
 ## Issues/Troubleshooting
 
-1. My main issue was with my system resource script. Trying to get the syntax right. Still having issues with it but the main thing is that Bash is unable to perform calculations with float numbers and integers. There's supposed to be a way to make it work but I haven't figured that part out yet.
-
+1. My main issue was with my system resource script. Trying to get the syntax right. Still having issues with it but the main thing is that Bash is unable to perform calculations with float numbers and integers. There's supposed to be a way to make it work but I haven't figured that part out yet. My plan is to dive deeper into the test functionality of Bash and see if I can figure out the right way to perform the calculations. I could go straight integer but for my instance, the CPU utilization is low and it'll just come out to be 0.
 
 ## Optimization
 
 1. How is using a Deploy Stage in the CI/CD pipeline able to increase efficiency of the business?
+
+   The Deploy automatically deploys if the Build and Test stages are successful. Having a Deploy Stage in Jenkins makes it so that you don't have to manually deploy your application yourself. It will be created based off the options you select in your EB CLI command. 
+  
 2. What issues, if any, can come with automating source code to a production environment?
+
+   There are a few things that could happen:
+
+   * Unintentional release of code that you don't want to be in the most recent release.
+   * Unauthorized code released into production.
+   * Resource constraints or resource limits hit on the Jenkins server.
+   * Configuration Drift or version discrepancies on dependencies
+   * Team collaboration if multiple people are trying to work with Jenkins all at once.
+  
 3. How would you address and/or resolve this?
+
+   Things to do to help address or resolve these problems:
+   
+   * Code Reviews to make sure code being released is good.
+   * Make sure you have unit tests in place that tests all the aspects of code to make sure the application works as intended
+   * Check how many boxes you have in your Jenkins fleet so that the working build queue can be spread out across the fleet.
+   * Ensure that there's a shared common library that will be kept up to date and can be used as a dependency library across applications and services.
 
 ## Conclusion
