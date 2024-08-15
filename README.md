@@ -166,6 +166,8 @@ Third step: Test
           }
       }
       ```
+    * Here is some info on Formatting Jenkinsfile. https://www.jenkins.io/doc/book/pipeline/syntax/
+   
 
 14. Make sure you push your changes to your Jenkinsfile to github.
 15. Check AWS Console Elastic Beanstalk to check if your environment is up and your domain is hosting your application.
@@ -195,6 +197,7 @@ Here is the System Design for this project.
    * Resource constraints or resource limits hit on the Jenkins server.
    * Configuration Drift or version discrepancies on dependencies
    * Team collaboration if multiple people are trying to work with Jenkins all at once.
+   * Credentials are something to consider too. Long standing credentials are a security vulnerability. Since we are giving Jenkins full control, if something happens to those credentials or the IAM User within the AWS Account, that will break Jenkins ability to communicate with AWS on our behalf.
   
 3. How would you address and/or resolve this?
 
@@ -206,3 +209,5 @@ Here is the System Design for this project.
    * Ensure that there's a shared common library that will be kept up to date and can be used as a dependency library across applications and services.
 
 ## Conclusion
+
+This project has been very good in illustrating how to automatically deploy your application using Jenkins. The biggest challenge is writing the resource script but working with the AWS CLI and enabling Jenkins to deploy for us via AWS Elastic Beanstalk is simple. As long as you have your syntax and formatting correct for your Jenkinsfile, it's simple and straightforward.
