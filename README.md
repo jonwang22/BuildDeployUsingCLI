@@ -9,7 +9,11 @@ The purpose of this project is automating the deployment after building and test
 * Jenkins needs a way to communicate with the APIs for AWS Elastic Beanstalk
 * Jenkins needs to know what commands to execute for the deploy stage after the build and test stage.
 
-At a high level, this project helps us dive deeper into configuring Jenkins to play a bigger role in our CI/CD pipeline. We will be exposed to creating Security Credentials from AWS in the form of ACCESS Keys tied to our IAM User, allowing Jenkins to authenticate into AWS on our behalf to perform the actions needed on our behalf. AWS CLI and EB CLI is needed for Jenkins to execute API calls to Elastic Beanstalk to create our environments to deploy our banking app. 
+At a high level, this project helps us dive deeper into configuring Jenkins to play a bigger role in our CI/CD pipeline. 
+
+We'll be creating a resource test script where we'll be checking our Jenkins instance resources as we're building and testing our application before we deploy it. We are checking to see if we have enough resources for this application as we build and test it so we can be sure that our production environment instances can handle the workload needed from the application.
+
+We will be exposed to creating Security Credentials from AWS in the form of ACCESS Keys tied to our IAM User, allowing Jenkins to authenticate into AWS on our behalf to perform the actions needed on our behalf. AWS CLI and EB CLI is needed for Jenkins to execute API calls to Elastic Beanstalk to create our environments to deploy our banking app. 
 
 ## Steps Taken to Implement
 
